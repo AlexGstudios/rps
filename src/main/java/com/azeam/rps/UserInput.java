@@ -1,4 +1,4 @@
-package com.alexander;
+package com.azeam.rps;
 
 public class UserInput {
 
