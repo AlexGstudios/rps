@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 public class UserInputTest {
 
     @Test
-    void test_get_user_input() {
+    void test_get_user_input_success() {
 
         UserInput userInput = new UserInput();
 
@@ -20,7 +20,7 @@ public class UserInputTest {
     }
 
     @Test
-    void test_set_user_input() {
+    void test_set_user_input_success() {
         UserInput userInput = new UserInput();
 
         String newInput = "test";
