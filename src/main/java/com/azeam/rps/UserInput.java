@@ -4,9 +4,15 @@ import java.util.Scanner;
 
 public class UserInput {
 
-    public String input() {
+    private String input = "Empty";
+
+    public void setInput() {
         Scanner sc = new Scanner(System.in);
-        String input = sc.nextLine().toString();
+        input = sc.nextLine().toLowerCase();
+        sc.close();
+    }
+
+    public String getInput() {
         return input;
     }
 }
