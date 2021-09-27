@@ -2,7 +2,7 @@ package com.azeam.rps;
 
 public class Game {
     
-    private Boolean isTrue = true;
+    private boolean isTrue = true;
 
     private String userInput;
 
