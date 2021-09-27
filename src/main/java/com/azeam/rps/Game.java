@@ -1,25 +1,25 @@
 package com.azeam.rps;
 
 public class Game {
-    
+
     private boolean isTrue = true;
 
     private String userInput;
 
-    public void gameMode(){
-        while(isTrue){
-            switch(userInput){
+    public void gameMode() {
+        while (isTrue) {
+            switch (userInput) {
                 case "one":
-                    //todo singelplayer
+                    // todo singelplayer
                     break;
                 case "two":
-                    //todo twoplayer
+                    // todo twoplayer
                     break;
                 case "three":
-                    //todo change names of the wpn's
+                    // todo change names of the wpn's
                     break;
                 default:
-                    //exception user typed wrong input
+                    // exception user typed wrong input
                     break;
             }
         }
