@@ -4,24 +4,26 @@ public class Game {
 
     private boolean isTrue = true;
 
-    private String userInput;
+    public boolean gameMode() {
 
-    public void gameMode() {
+        String userInput = UserInput.getInput();
+
         while (isTrue) {
             switch (userInput) {
                 case "one":
                     // todo singelplayer
-                    break;
+                    return true;
                 case "two":
                     // todo twoplayer
-                    break;
+                    return true;
                 case "three":
                     // todo change names of the wpn's
-                    break;
+                    return true;
                 default:
                     // exception user typed wrong input
-                    break;
+                    return true;
             }
         }
+        return false;
     }
 }
