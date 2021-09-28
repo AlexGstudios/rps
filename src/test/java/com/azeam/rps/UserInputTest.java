@@ -10,27 +10,16 @@ import org.junit.jupiter.api.Test;
 public class UserInputTest {
 
     @Test
-    void test_get_user_input_success() {
-
-        UserInput userInput = new UserInput();
-
-        String input = userInput.getInput();
-
-        assertEquals("Empty", input);
-    }
-
-    @Test
     void test_set_user_input_success() {
-        UserInput userInput = new UserInput();
 
         String newInput = "test";
 
         InputStream in = new ByteArrayInputStream(newInput.getBytes());
         System.setIn(in);
 
-        userInput.setInput();
+        UserInput.setInput();
 
-        String input = userInput.getInput();
+        String input = UserInput.getInput();
 
         assertEquals("test", input);
 

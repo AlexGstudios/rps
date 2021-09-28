@@ -4,15 +4,15 @@ import java.util.Scanner;
 
 public class UserInput {
 
-    private String input = "Empty";
+    private static String input = "";
 
-    public void setInput() {
+    public static void setInput() {
         Scanner sc = new Scanner(System.in);
         input = sc.nextLine().toLowerCase();
         sc.close();
     }
 
-    public String getInput() {
+    public static String getInput() {
         return input;
     }
 }
