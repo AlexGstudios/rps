@@ -2,21 +2,23 @@ package com.azeam.rps;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
 
+@TestInstance(Lifecycle.PER_CLASS)
 public class GameCheckTest {
 
-    @Test
-    void test_game_check_tries() {
-        GameCheck gameCheck = new GameCheck();
+    GameCheck gameCheck;
 
-        assertEquals(5, gameCheck.getTries());
+    @BeforeAll
+    void test_setup() {
+        gameCheck = new GameCheck();
     }
 
     @Test
     void test_game_check_wins() {
-        GameCheck gameCheck = new GameCheck();
-
         assertEquals(3, gameCheck.getWins());
     }
 }
