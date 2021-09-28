@@ -6,6 +6,7 @@ public class Game {
 
     public boolean gameMode() {
 
+        // TODO: output show user game choices
         String userInput = UserInput.getInput();
 
         while (isTrue) {
@@ -15,13 +16,13 @@ public class Game {
                     return true;
                 case "two":
                     // todo twoplayer
-                    return true;
+                    return false;
                 case "three":
                     // todo change names of the wpn's
-                    return true;
+                    return false;
                 default:
                     // exception user typed wrong input
-                    return true;
+                    return false;
             }
         }
         return false;

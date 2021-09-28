@@ -2,9 +2,9 @@ package com.azeam.rps;
 
 public class Setup {
 
-    private static UserValues rock = new UserValues();
-    private static UserValues scissors = new UserValues();
-    private static UserValues paper = new UserValues();
+    private static WeaponValues rock = new WeaponValues();
+    private static WeaponValues scissors = new WeaponValues();
+    private static WeaponValues paper = new WeaponValues();
 
     public void setup() {
         rock.ID = 0;
@@ -20,15 +20,15 @@ public class Setup {
         paper.beats = "Rock";
     }
 
-    public static UserValues getRock() {
+    public static WeaponValues getRock() {
         return rock;
     }
 
-    public static UserValues getScissors() {
+    public static WeaponValues getScissors() {
         return scissors;
     }
 
-    public static UserValues getPaper() {
+    public static WeaponValues getPaper() {
         return paper;
     }
 
