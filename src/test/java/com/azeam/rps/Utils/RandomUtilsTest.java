@@ -3,7 +3,7 @@ package com.azeam.rps.Utils;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import com.azeam.rps.Players.Computer;
-import com.azeam.rps.Weapon.Weapon;
+import com.azeam.rps.Weapons.Weapon;
 
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;

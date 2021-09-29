@@ -7,8 +7,4 @@ public class Computer extends AbstractPlayer {
         super.weapon = RandomUtils.getRandomWeapon();
         super.name = name;
     }
-
-    public void setWeapon() {
-        super.weapon = RandomUtils.getRandomWeapon();
-    }
 }

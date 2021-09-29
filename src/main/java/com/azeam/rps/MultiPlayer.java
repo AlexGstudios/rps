@@ -1,7 +1,7 @@
 package com.azeam.rps;
 
 import com.azeam.rps.Players.User;
-import com.azeam.rps.Weapon.WeaponChoice;
+import com.azeam.rps.Weapons.WeaponChoice;
 
 public class MultiPlayer {
     private User player1;

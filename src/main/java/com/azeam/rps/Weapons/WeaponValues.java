@@ -1,4 +1,4 @@
-package com.azeam.rps.Weapon;
+package com.azeam.rps.Weapons;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,6 +1,6 @@
 package com.azeam.rps.Players;
 
-import com.azeam.rps.Weapon.Weapon;
+import com.azeam.rps.Weapons.Weapon;
 
 import lombok.Data;
 

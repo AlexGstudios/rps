@@ -1,10 +1,13 @@
-package com.azeam.rps.Weapon;
+package com.azeam.rps.Weapons;
 
 import com.azeam.rps.Game;
-import com.azeam.rps.GameCheck;
 import com.azeam.rps.UserInput;
+import com.azeam.rps.GameLogic.GameCheck;
+import com.azeam.rps.GameLogic.Outcome;
 import com.azeam.rps.Players.AbstractPlayer;
+import com.azeam.rps.Players.Computer;
 import com.azeam.rps.Players.User;
+import com.azeam.rps.Utils.RandomUtils;
 
 public class WeaponChoice {
     private GameCheck gameCheck = new GameCheck();
@@ -16,20 +19,21 @@ public class WeaponChoice {
 
     public void showUserOptions(AbstractPlayer player1, AbstractPlayer player2) {
         while (player1.getWins() < 3 && player2.getWins() < 3) {
-            setWeaponChoice(player1);
+            setWeaponChoice((User) player1);
             if (player2 instanceof User) {
-                setWeaponChoice(player2);
+                setWeaponChoice((User) player2);
+            } else if (player2 instanceof Computer) {
+                player2.setWeapon(RandomUtils.getRandomWeapon());
             }
-            System.out.println(player1.getName() + " selected: " + player1.getWeapon() + " and " + player2.getName()
-                    + " selected " + player2.getWeapon());
-            String result = gameCheck.gameCheck(player1, player2);
-            System.out.println(result);
+            Outcome result = gameCheck.gameCheck(player1, player2);
+            System.out.println(gameCheck.getBeats(player1, player2, result));
         }
+        // TODO: handle with state instead of new game
         Game game = new Game();
         game.gameMode();
     }
 
-    public void setWeaponChoice(AbstractPlayer player) {
+    public void setWeaponChoice(User player) {
         System.out.println(player.getName() + " - Select weapon:\n[1] ROCK\n[2] PAPER\n[3] SCISSORS");
         userInput.setInput();
 
