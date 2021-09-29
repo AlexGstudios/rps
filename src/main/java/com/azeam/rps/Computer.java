@@ -12,5 +12,4 @@ public class Computer {
     public Weapon getWeapon() {
         return this.weapon;
     }
-
 }

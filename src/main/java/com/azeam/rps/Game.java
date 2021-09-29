@@ -1,30 +1,17 @@
 package com.azeam.rps;
 
 public class Game {
+    private String userInput;
 
-    private boolean isTrue = true;
+    public void gameMode() {
+        System.out.println("Select game type:\n[1] Single player\n[2] Two players\n[3] Three players");
+        UserInput.setInput();
+        userInput = UserInput.getInput();
 
-    public boolean gameMode() {
-
-        // TODO: output show user game choices
-        String userInput = UserInput.getInput();
-
-        while (isTrue) {
-            switch (userInput) {
-                case "one":
-                    // todo singelplayer
-                    return true;
-                case "two":
-                    // todo twoplayer
-                    return false;
-                case "three":
-                    // todo change names of the wpn's
-                    return false;
-                default:
-                    // exception user typed wrong input
-                    return false;
-            }
+        switch (userInput) {
+            case "1" -> new SinglePlayer();
+            case "2" -> new SinglePlayer();
+            case "3" -> new SinglePlayer();
         }
-        return false;
     }
 }
