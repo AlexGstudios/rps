@@ -1,4 +1,4 @@
-package com.azeam.rps;
+package com.azeam.rps.Weapon;
 
 public enum Weapon {
     ROCK, PAPER, SCISSORS

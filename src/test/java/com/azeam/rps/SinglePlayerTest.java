@@ -20,7 +20,7 @@ public class SinglePlayerTest {
         String one = "1";
         InputStream in = new ByteArrayInputStream(one.getBytes());
         System.setIn(in);
-        new SinglePlayer();
+        // new SinglePlayer();
     }
 
     @Test

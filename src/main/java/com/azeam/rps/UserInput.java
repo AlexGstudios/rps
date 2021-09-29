@@ -3,18 +3,19 @@ package com.azeam.rps;
 import java.util.Scanner;
 
 public class UserInput {
-    private static String input = "";
-    static Scanner sc = new Scanner(System.in);
+    private String input = "";
+    private Scanner sc = new Scanner(System.in);
 
-    public static void setInput() {
+    public void setInput() {
         input = sc.nextLine().toLowerCase().trim();
     }
 
-    public static String getInput() {
+    public String getInput() {
         return input;
     }
 
-    public static void closeScanner() {
+    // TODO: close on exit
+    public void closeScanner() {
         sc.close();
     }
 }

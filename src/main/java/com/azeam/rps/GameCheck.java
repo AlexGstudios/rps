@@ -1,25 +1,26 @@
 package com.azeam.rps;
 
+import com.azeam.rps.Weapon.WeaponData;
+import com.azeam.rps.Weapon.WeaponValues;
+
 public class GameCheck {
+    private WeaponData weaponData = new WeaponData();
+    private WeaponValues computerWeapon;
+    private WeaponValues userWeapon;
 
-    private int wins = 3;
+    public String gameCheck(User user, Computer computer) {
+        userWeapon = weaponData.getWeaponData(user.getWeapon());
+        computerWeapon = weaponData.getWeaponData(computer.getWeapon());
 
-    public void gameCheck(WeaponValues user, WeaponValues multiComp, int singleMulti) {
-        String[] choices = Setup.weaponds();
-
-        String[] compOrPlayerTwo = { "The Computer", "Player two" };
-
-        if (user.name.equals(multiComp.name)) {
-
-        } else if (user.beats.equals(multiComp.name)) {
-
-        } else {
-
+        if (userWeapon.getBeats() == computerWeapon.getName()) {
+            user.setWins(user.getWins() + 1);
+            computer.setLosses(computer.getLosses() + 1);
+            return "Player beats computer, wins: " + user.getWins() + ", losses: " + user.getLosses();
+        } else if (computerWeapon.getBeats() == userWeapon.getName()) {
+            computer.setWins(computer.getWins() + 1);
+            user.setLosses(user.getLosses() + 1);
+            return "Computer beats player, wins: " + computer.getWins() + ", losses: " + computer.getLosses();
         }
+        return "Draw";
     }
-
-    public int getWins() {
-        return wins;
-    }
-
 }
