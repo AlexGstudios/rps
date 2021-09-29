@@ -21,9 +21,8 @@ public class SinglePlayer {
         while (user.getWins() < 3 && computer.getWins() < 3) {
             System.out.println("Select weapon:\n[1] ROCK\n[2] PAPER\n[3] SCISSORS");
             userInput.setInput();
-            String input = userInput.getInput();
 
-            switch (input) {
+            switch (userInput.getInput()) {
                 case "1" -> user.setWeapon(Weapon.ROCK);
                 case "2" -> user.setWeapon(Weapon.PAPER);
                 case "3" -> user.setWeapon(Weapon.SCISSORS);

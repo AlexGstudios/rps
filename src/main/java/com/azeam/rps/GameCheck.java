@@ -20,7 +20,6 @@ public class GameCheck {
             user.setWins(user.getWins() + 1);
             computer.setLosses(computer.getLosses() + 1);
             result = "Player beats computer.\n";
-
         } else if (computerWeapon.getBeats() == userWeapon.getName()) {
             computer.setWins(computer.getWins() + 1);
             user.setLosses(user.getLosses() + 1);
