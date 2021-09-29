@@ -1,29 +1,17 @@
 package com.azeam.rps;
 
 public class Game {
+    private UserInput userInput = new UserInput();
 
-    private boolean isTrue = true;
+    public void gameMode() {
+        System.out.println("Select game type:\n[1] Single player\n[2] Two players\n[3] Quit");
+        userInput.setInput();
 
-    public boolean gameMode() {
-
-        String userInput = UserInput.getInput();
-
-        while (isTrue) {
-            switch (userInput) {
-                case "one":
-                    // todo singelplayer
-                    return true;
-                case "two":
-                    // todo twoplayer
-                    return true;
-                case "three":
-                    // todo change names of the wpn's
-                    return true;
-                default:
-                    // exception user typed wrong input
-                    return true;
-            }
+        switch (userInput.getInput()) {
+            case "1" -> new SinglePlayer(userInput).showUserOptions();
+            case "2" -> new MultiPlayer(userInput).showUserOptions();
+            case "3" -> userInput.closeScanner();
+            default -> throw new IllegalStateException("Invalid option");
         }
-        return false;
     }
 }
