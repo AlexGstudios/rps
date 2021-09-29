@@ -1,5 +1,7 @@
 package com.azeam.rps;
 
+import com.azeam.rps.Players.Computer;
+import com.azeam.rps.Players.User;
 import com.azeam.rps.Weapon.Weapon;
 
 public class SinglePlayer {
@@ -29,6 +31,7 @@ public class SinglePlayer {
             System.out.println("User selected: " + user.getWeapon() + " and computer selected " + computer.getWeapon());
             String result = gameCheck.gameCheck(user, computer);
             System.out.println(result);
+            computer.setWeapon();
         }
     }
 }

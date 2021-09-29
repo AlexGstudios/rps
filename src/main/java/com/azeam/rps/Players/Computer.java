@@ -1,4 +1,4 @@
-package com.azeam.rps;
+package com.azeam.rps.Players;
 
 import com.azeam.rps.Utils.RandomUtils;
 import com.azeam.rps.Weapon.Weapon;

@@ -2,7 +2,7 @@ package com.azeam.rps.Utils;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import com.azeam.rps.Computer;
+import com.azeam.rps.Players.Computer;
 import com.azeam.rps.Weapon.Weapon;
 
 import org.hamcrest.Matchers;
