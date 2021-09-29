@@ -1,7 +1,11 @@
 package com.azeam.rps;
 
 public class Game {
-    private UserInput userInput = new UserInput();
+    private UserInput userInput;
+
+    public Game(UserInput userInput) {
+        this.userInput = userInput;
+    }
 
     public void gameMode() {
         System.out.println("Select game type:\n[1] Single player\n[2] Two players\n[3] Quit");

@@ -31,7 +31,7 @@ public class WeaponChoice {
             System.out.println(stringResult.getResult(player1, player2, result));
         }
         // TODO: handle with state instead of new game
-        Game game = new Game();
+        Game game = new Game(userInput);
         game.gameMode();
     }
 
