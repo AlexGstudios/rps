@@ -1,21 +1,14 @@
 package com.azeam.rps.Players;
 
 import com.azeam.rps.Utils.RandomUtils;
-import com.azeam.rps.Weapon.Weapon;
 
-import lombok.Data;
-
-@Data
-public class Computer {
-    Weapon weapon;
-    int wins = 0;
-    int losses = 0;
-
-    public Computer() {
-        this.weapon = RandomUtils.getRandomWeapon();
+public class Computer extends AbstractPlayer {
+    public Computer(String name) {
+        super.weapon = RandomUtils.getRandomWeapon();
+        super.name = name;
     }
 
     public void setWeapon() {
-        this.weapon = RandomUtils.getRandomWeapon();
+        super.weapon = RandomUtils.getRandomWeapon();
     }
 }

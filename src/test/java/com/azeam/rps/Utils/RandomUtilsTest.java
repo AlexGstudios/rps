@@ -13,7 +13,7 @@ public class RandomUtilsTest {
 
     @Test
     public void get_random_weapon() {
-        computer = new Computer();
+        computer = new Computer("Computer");
         Weapon weapon = computer.getWeapon();
 
         assertThat(weapon, Matchers.either(Matchers.is(Weapon.ROCK)).or(Matchers.is(Weapon.PAPER))

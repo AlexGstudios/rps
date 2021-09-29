@@ -2,35 +2,20 @@ package com.azeam.rps;
 
 import com.azeam.rps.Players.Computer;
 import com.azeam.rps.Players.User;
-import com.azeam.rps.Weapon.Weapon;
+import com.azeam.rps.Weapon.WeaponChoice;
 
 public class SinglePlayer {
-
-    private User user;
+    private User player;
     private Computer computer;
-    private GameCheck gameCheck = new GameCheck();
-    private UserInput userInput;
+    private WeaponChoice weaponChoice;
 
     public SinglePlayer(UserInput userInput) {
-        user = new User();
-        computer = new Computer();
-        this.userInput = userInput;
+        player = new User("Player");
+        computer = new Computer("Computer");
+        weaponChoice = new WeaponChoice(userInput);
     }
 
-    void showUserOptions() {
-        while (user.getWins() < 3 && computer.getWins() < 3) {
-            System.out.println("Select weapon:\n[1] ROCK\n[2] PAPER\n[3] SCISSORS");
-            userInput.setInput();
-
-            switch (userInput.getInput()) {
-                case "1" -> user.setWeapon(Weapon.ROCK);
-                case "2" -> user.setWeapon(Weapon.PAPER);
-                case "3" -> user.setWeapon(Weapon.SCISSORS);
-            }
-            System.out.println("User selected: " + user.getWeapon() + " and computer selected " + computer.getWeapon());
-            String result = gameCheck.gameCheck(user, computer);
-            System.out.println(result);
-            computer.setWeapon();
-        }
+    protected void showUserOptions() {
+        weaponChoice.showUserOptions(player, computer);
     }
 }

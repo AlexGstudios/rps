@@ -6,9 +6,9 @@ public class WeaponData {
 
     public WeaponValues getWeaponData(Weapon weapon) {
         switch (weapon) {
-            case ROCK -> weaponValues = new WeaponValues(0, Weapon.ROCK, Weapon.SCISSORS);
-            case PAPER -> weaponValues = new WeaponValues(0, Weapon.PAPER, Weapon.ROCK);
-            case SCISSORS -> weaponValues = new WeaponValues(0, Weapon.SCISSORS, Weapon.PAPER);
+            case ROCK -> weaponValues = new WeaponValues(Weapon.ROCK, Weapon.SCISSORS);
+            case PAPER -> weaponValues = new WeaponValues(Weapon.PAPER, Weapon.ROCK);
+            case SCISSORS -> weaponValues = new WeaponValues(Weapon.SCISSORS, Weapon.PAPER);
         }
         return weaponValues;
     }

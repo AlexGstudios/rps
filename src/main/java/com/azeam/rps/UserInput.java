@@ -14,7 +14,6 @@ public class UserInput {
         return input;
     }
 
-    // TODO: close on exit
     public void closeScanner() {
         sc.close();
     }
