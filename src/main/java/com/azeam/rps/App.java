@@ -2,7 +2,8 @@ package com.azeam.rps;
 
 public class App {
     public static void main(String[] args) {
-        Game game = new Game();
+        UserInput userInput = new UserInput();
+        Game game = new Game(userInput);
         game.gameMode();
     }
 }

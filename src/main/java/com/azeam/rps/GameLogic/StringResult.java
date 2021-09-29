@@ -16,7 +16,7 @@ public class StringResult {
     }
 
     private String getSelection(User player1, AbstractPlayer player2) {
-        return player1.getName() + " selected: " + player1.getWeapon() + " and " + player2.getName() + " selected "
+        return player1.getName() + " selected " + player1.getWeapon() + " and " + player2.getName() + " selected "
                 + player2.getWeapon() + "\n";
     }
 
