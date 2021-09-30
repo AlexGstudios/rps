@@ -1,8 +1,6 @@
 package com.azeam.rps.Weapons;
 
 import com.azeam.rps.App;
-import com.azeam.rps.Game;
-import com.azeam.rps.GameFactory;
 import com.azeam.rps.UserInput;
 import com.azeam.rps.GameLogic.GameCheck;
 import com.azeam.rps.GameLogic.Outcome;
@@ -21,7 +19,7 @@ public class WeaponChoice {
         this.userInput = userInput;
     }
 
-    public void showUserOptions(User player1, AbstractPlayer player2) {
+    public void showWeaponChoices(User player1, AbstractPlayer player2) {
         while (player1.getWins() < 3 && player2.getWins() < 3) {
             setWeaponChoice(player1);
             if (player2 instanceof User) {

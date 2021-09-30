@@ -1,16 +1,18 @@
-package com.azeam.rps;
+package com.azeam.rps.GameBase;
 
-public class GameFactory {
+import com.azeam.rps.UserInput;
+
+public class GameBuilder {
 
     private UserInput userInput;
     Game game;
 
-    public GameFactory(UserInput userInput) {
+    public GameBuilder(UserInput userInput) {
         this.userInput = userInput;
     }
 
     public Game createGame() {
-        System.out.println("Select game type:\n[1] Single player\n[2] Twoplayers\n[3] Quit");
+        System.out.println("Select game type:\n[1] Single player\n[2] Two players\n[3] Quit");
         userInput.setInput();
 
         switch (userInput.getInput()) {

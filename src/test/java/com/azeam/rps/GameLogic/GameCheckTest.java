@@ -85,6 +85,5 @@ public class GameCheckTest {
         assertThat(gameCheck.gameCheck(player1, player2), equalTo(Outcome.DRAW));
         assertThat(gameCheck.gameCheck(player2, player1), equalTo(Outcome.DRAW));
         assertThat(gameCheck.gameCheck(player1, computer), equalTo(Outcome.DRAW));
-
     }
 }

@@ -5,12 +5,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 public class UserInputTest {
 
     @Test
-    void test_set_user_input_success() {
+    void set_user_input_success() {
         String newInput = "test";
         InputStream in = new ByteArrayInputStream(newInput.getBytes());
         System.setIn(in);
@@ -22,4 +23,8 @@ public class UserInputTest {
         assertEquals("test", input);
     }
 
+    @AfterEach
+    public void rollbackChangesToStdin() {
+        System.setIn(System.in);
+    }
 }

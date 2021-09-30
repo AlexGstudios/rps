@@ -1,5 +1,6 @@
-package com.azeam.rps;
+package com.azeam.rps.GameBase;
 
+import com.azeam.rps.UserInput;
 import com.azeam.rps.Players.User;
 import com.azeam.rps.Weapons.WeaponChoice;
 
@@ -12,6 +13,6 @@ public abstract class Game implements GameInterface {
     }
 
     @Override
-    public void showUserOptions() {
+    public void startGame() {
     }
 }
