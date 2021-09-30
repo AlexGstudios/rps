@@ -1,20 +1,18 @@
 package com.azeam.rps;
 
 import com.azeam.rps.Players.User;
-import com.azeam.rps.Weapons.WeaponChoice;
 
-public class MultiPlayer {
-    private User player1;
+public class MultiPlayer extends Game {
     private User player2;
-    private WeaponChoice weaponChoice;
 
     public MultiPlayer(UserInput userInput) {
-        player1 = new User("Player 1");
-        player2 = new User("Player 2");
-        weaponChoice = new WeaponChoice(userInput);
+        super(userInput);
+        super.player1 = new User("Player 1");
+        this.player2 = new User("Player 2");
     }
 
-    protected void showUserOptions() {
+    @Override
+    public void showUserOptions() {
         weaponChoice.showUserOptions(player1, player2);
     }
 }

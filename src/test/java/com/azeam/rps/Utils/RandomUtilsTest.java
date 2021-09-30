@@ -1,7 +1,6 @@
 package com.azeam.rps.Utils;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.mockito.Mockito.mock;
 
 import com.azeam.rps.Players.Computer;
 import com.azeam.rps.Weapons.Weapon;

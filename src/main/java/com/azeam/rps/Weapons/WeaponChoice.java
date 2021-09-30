@@ -1,6 +1,8 @@
 package com.azeam.rps.Weapons;
 
+import com.azeam.rps.App;
 import com.azeam.rps.Game;
+import com.azeam.rps.GameFactory;
 import com.azeam.rps.UserInput;
 import com.azeam.rps.GameLogic.GameCheck;
 import com.azeam.rps.GameLogic.Outcome;
@@ -30,12 +32,10 @@ public class WeaponChoice {
             Outcome result = gameCheck.gameCheck(player1, player2);
             System.out.println(stringResult.getResult(player1, player2, result));
         }
-        // TODO: handle with state instead of new game
-        Game game = new Game(userInput);
-        game.gameMode();
+        App.newGame(userInput);
     }
 
-    private void setWeaponChoice(User player) {
+    public void setWeaponChoice(User player) {
         System.out.println(player.getName() + " - Select weapon:\n[1] ROCK\n[2] PAPER\n[3] SCISSORS");
         userInput.setInput();
 

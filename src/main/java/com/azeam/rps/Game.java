@@ -1,21 +1,17 @@
 package com.azeam.rps;
 
-public class Game {
-    private UserInput userInput;
+import com.azeam.rps.Players.User;
+import com.azeam.rps.Weapons.WeaponChoice;
+
+public abstract class Game implements GameInterface {
+    protected User player1;
+    protected WeaponChoice weaponChoice;
 
     public Game(UserInput userInput) {
-        this.userInput = userInput;
+        this.weaponChoice = new WeaponChoice(userInput);
     }
 
-    public void gameMode() {
-        System.out.println("Select game type:\n[1] Single player\n[2] Two players\n[3] Quit");
-        userInput.setInput();
-
-        switch (userInput.getInput()) {
-            case "1" -> new SinglePlayer(userInput).showUserOptions();
-            case "2" -> new MultiPlayer(userInput).showUserOptions();
-            case "3" -> userInput.closeScanner();
-            default -> throw new IllegalStateException("Invalid option");
-        }
+    @Override
+    public void showUserOptions() {
     }
 }

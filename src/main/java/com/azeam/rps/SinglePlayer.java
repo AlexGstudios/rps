@@ -2,20 +2,17 @@ package com.azeam.rps;
 
 import com.azeam.rps.Players.Computer;
 import com.azeam.rps.Players.User;
-import com.azeam.rps.Weapons.WeaponChoice;
 
-public class SinglePlayer {
-    private User player;
+public class SinglePlayer extends Game {
     private Computer computer;
-    private WeaponChoice weaponChoice;
 
     public SinglePlayer(UserInput userInput) {
-        player = new User("Player");
-        computer = new Computer("Computer");
-        weaponChoice = new WeaponChoice(userInput);
+        super(userInput);
+        super.player1 = new User("Player");
+        this.computer = new Computer("Computer");
     }
 
-    protected void showUserOptions() {
-        weaponChoice.showUserOptions(player, computer);
+    public void showUserOptions() {
+        weaponChoice.showUserOptions(player1, computer);
     }
 }
