@@ -1,5 +1,6 @@
 package com.azeam.rps.GameBase;
 
+import com.azeam.rps.App;
 import com.azeam.rps.UserInput;
 import com.azeam.rps.Players.User;
 
@@ -15,5 +16,6 @@ public class MultiPlayer extends Game {
     @Override
     public void startGame() {
         weaponChoice.showWeaponChoices(player1, player2);
+        App.newGame();
     }
 }

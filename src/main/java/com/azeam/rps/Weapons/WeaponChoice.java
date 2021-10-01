@@ -1,21 +1,23 @@
 package com.azeam.rps.Weapons;
 
-import com.azeam.rps.App;
 import com.azeam.rps.UserInput;
 import com.azeam.rps.GameLogic.GameCheck;
 import com.azeam.rps.GameLogic.Outcome;
-import com.azeam.rps.GameLogic.StringResult;
 import com.azeam.rps.Players.AbstractPlayer;
 import com.azeam.rps.Players.Computer;
 import com.azeam.rps.Players.User;
 import com.azeam.rps.Utils.RandomUtils;
+import com.azeam.rps.Utils.StringUtils;
 
 public class WeaponChoice {
-    private GameCheck gameCheck = new GameCheck();
-    private StringResult stringResult = new StringResult();
+    private WeaponData weaponData = new WeaponData();
+    private GameCheck gameCheck = new GameCheck(weaponData);
+    private StringUtils stringUtils = new StringUtils();
     private UserInput userInput;
+    private RandomUtils randomUtils;
 
-    public WeaponChoice(UserInput userInput) {
+    public WeaponChoice(UserInput userInput, RandomUtils randomUtils) {
+        this.randomUtils = randomUtils;
         this.userInput = userInput;
     }
 
@@ -25,16 +27,15 @@ public class WeaponChoice {
             if (player2 instanceof User) {
                 setWeaponChoice((User) player2);
             } else if (player2 instanceof Computer) {
-                player2.setWeapon(RandomUtils.getRandomWeapon());
+                player2.setWeapon(randomUtils.getRandomWeapon());
             }
             Outcome result = gameCheck.gameCheck(player1, player2);
-            System.out.println(stringResult.getResult(player1, player2, result));
+            stringUtils.printResult(player1, player2, result);
         }
-        App.newGame(userInput);
     }
 
-    public void setWeaponChoice(User player) {
-        System.out.println(player.getName() + " - Select weapon:\n[1] ROCK\n[2] PAPER\n[3] SCISSORS");
+    private void setWeaponChoice(User player) {
+        stringUtils.printSelectWeapon(player);
         userInput.setInput();
 
         switch (userInput.getInput()) {

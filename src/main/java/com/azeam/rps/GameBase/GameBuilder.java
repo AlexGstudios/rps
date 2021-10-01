@@ -1,10 +1,11 @@
 package com.azeam.rps.GameBase;
 
 import com.azeam.rps.UserInput;
+import com.azeam.rps.Utils.StringUtils;
 
 public class GameBuilder {
-
     private UserInput userInput;
+    private StringUtils stringUtils = new StringUtils();
     Game game;
 
     public GameBuilder(UserInput userInput) {
@@ -12,7 +13,7 @@ public class GameBuilder {
     }
 
     public Game createGame() {
-        System.out.println("Select game type:\n[1] Single player\n[2] Two players\n[3] Quit");
+        stringUtils.printSelectGameType();
         userInput.setInput();
 
         switch (userInput.getInput()) {

@@ -6,9 +6,13 @@ import com.azeam.rps.Weapons.WeaponData;
 import com.azeam.rps.Weapons.WeaponValues;
 
 public class GameCheck {
-    private WeaponData weaponData = new WeaponData();
+    private WeaponData weaponData;
     private WeaponValues player2Weapon;
     private WeaponValues player1Weapon;
+
+    public GameCheck(WeaponData weaponData) {
+        this.weaponData = weaponData;
+    }
 
     public Outcome gameCheck(User player1, AbstractPlayer player2) {
         player1Weapon = weaponData.getWeaponData(player1.getWeapon());

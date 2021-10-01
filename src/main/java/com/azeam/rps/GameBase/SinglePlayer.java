@@ -1,5 +1,6 @@
 package com.azeam.rps.GameBase;
 
+import com.azeam.rps.App;
 import com.azeam.rps.UserInput;
 import com.azeam.rps.Players.Computer;
 import com.azeam.rps.Players.User;
@@ -15,5 +16,6 @@ public class SinglePlayer extends Game {
 
     public void startGame() {
         weaponChoice.showWeaponChoices(player1, computer);
+        App.newGame();
     }
 }
