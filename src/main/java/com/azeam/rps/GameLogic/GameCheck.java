@@ -18,15 +18,10 @@ public class GameCheck {
         player1Weapon = weaponData.getWeaponData(player1.getWeapon());
         player2Weapon = weaponData.getWeaponData(player2.getWeapon());
 
-        if (player1Weapon.getBeats() == player2Weapon.getType()) {
-            player1.setWins(player1.getWins() + 1);
-            player2.setLosses(player2.getLosses() + 1);
+        if (player1Weapon.getBeats() == player2Weapon.getType())
             return Outcome.WIN;
-        } else if (player2Weapon.getBeats() == player1Weapon.getType()) {
-            player2.setWins(player2.getWins() + 1);
-            player1.setLosses(player1.getLosses() + 1);
+        if (player2Weapon.getBeats() == player1Weapon.getType())
             return Outcome.LOSS;
-        }
         return Outcome.DRAW;
     }
 }

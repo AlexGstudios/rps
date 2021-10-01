@@ -17,6 +17,11 @@ public class StringUtils {
         System.out.println(player.getName() + " - Select weapon:\n[1] ROCK\n[2] PAPER\n[3] SCISSORS");
     }
 
+    public void printFinalResult(User player1, AbstractPlayer player2, Outcome outcome) {
+        System.out.println(outcome == Outcome.WIN ? player1.getName() + " HAS WON! GAME OVER!\n"
+                : player2.getName() + " HAS WON! GAME OVER!\n");
+    }
+
     private String getResult(User player1, AbstractPlayer player2, Outcome outcome) {
         String result = "";
         switch (outcome) {

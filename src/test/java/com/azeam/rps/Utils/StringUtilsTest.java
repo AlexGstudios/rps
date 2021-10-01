@@ -52,5 +52,4 @@ public class StringUtilsTest {
     public void restoreStreams() {
         System.setOut(originalOut);
     }
-
 }
