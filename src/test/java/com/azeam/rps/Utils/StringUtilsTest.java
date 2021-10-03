@@ -21,7 +21,6 @@ public class StringUtilsTest {
     User player2;
     StringUtils result;
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final PrintStream originalOut = System.out;
 
     @BeforeEach
     public void setup() {
@@ -50,6 +49,6 @@ public class StringUtilsTest {
 
     @AfterEach
     public void restoreStreams() {
-        System.setOut(originalOut);
+        System.setOut(System.out);
     }
 }

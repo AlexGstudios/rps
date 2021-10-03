@@ -19,8 +19,4 @@ public abstract class Game implements GameInterface {
         this.randomUtils = new RandomUtils();
         this.battle = new Battle(userInput, randomUtils, gameCheck);
     }
-
-    @Override
-    public void startGame() {
-    }
 }

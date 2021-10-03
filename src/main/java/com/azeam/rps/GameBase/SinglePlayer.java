@@ -17,6 +17,7 @@ public class SinglePlayer extends Game {
         this.computer = new Computer("Computer");
     }
 
+    @Override
     public void startGame() {
         Outcome outcome = battle.startBattle(player1, computer);
         stringUtils.printFinalResult(player1, computer, outcome);

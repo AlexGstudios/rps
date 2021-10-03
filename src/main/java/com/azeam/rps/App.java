@@ -14,8 +14,7 @@ public class App {
     public static void newGame() {
         GameBuilder gameBuilder = new GameBuilder(userInput);
         Game game = gameBuilder.createGame();
-        if (game != null) {
+        if (game != null)
             game.startGame();
-        }
     }
 }
