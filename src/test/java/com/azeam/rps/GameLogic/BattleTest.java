@@ -1,4 +1,4 @@
-package com.azeam.rps.Weapons;
+package com.azeam.rps.GameLogic;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -9,23 +9,26 @@ import com.azeam.rps.UserInput;
 import com.azeam.rps.Players.Computer;
 import com.azeam.rps.Players.User;
 import com.azeam.rps.Utils.RandomUtils;
+import com.azeam.rps.Weapons.Weapon;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class WeaponChoiceTest {
+public class BattleTest {
     UserInput userInput;
-    WeaponChoice weaponChoice;
+    Battle battle;
     User player1;
     User player2;
     Computer computer;
     RandomUtils randomUtils;
+    GameCheck gameCheck;
 
     @BeforeEach
     void setup() {
         userInput = mock(UserInput.class);
         randomUtils = mock(RandomUtils.class);
-        weaponChoice = new WeaponChoice(userInput, randomUtils);
+        gameCheck = mock(GameCheck.class);
+        battle = new Battle(userInput, randomUtils, gameCheck);
         player1 = new User("Player 1");
         player2 = new User("Player 2");
         computer = new Computer("Computer");
@@ -34,7 +37,9 @@ public class WeaponChoiceTest {
     @Test
     void pvp_battle_weapon_choice_success() {
         when(userInput.getInput()).thenReturn("1", "2", "1", "2", "1", "2");
-        weaponChoice.showWeaponChoices(player1, player2);
+        when(gameCheck.getRoundResult(player1, player2)).thenReturn(Outcome.WIN);
+
+        battle.startBattle(player1, player2);
 
         assertEquals(Weapon.ROCK, player1.getWeapon());
         assertEquals(Weapon.PAPER, player2.getWeapon());
@@ -43,8 +48,9 @@ public class WeaponChoiceTest {
     @Test
     void pvc_battle_weapon_choice_success() {
         when(randomUtils.getRandomWeapon()).thenReturn(Weapon.SCISSORS);
-        when(userInput.getInput()).thenReturn("1", "1", "1");
-        weaponChoice.showWeaponChoices(player1, computer);
+        when(userInput.getInput()).thenReturn("1");
+        when(gameCheck.getRoundResult(player1, computer)).thenReturn(Outcome.WIN);
+        battle.startBattle(player1, computer);
 
         assertEquals(Weapon.ROCK, player1.getWeapon());
         assertEquals(Weapon.SCISSORS, computer.getWeapon());
@@ -53,24 +59,20 @@ public class WeaponChoiceTest {
     @Test
     void pvc_battle_outcome_success() {
         when(randomUtils.getRandomWeapon()).thenReturn(Weapon.SCISSORS);
-        when(userInput.getInput()).thenReturn("1", "1", "1");
-        weaponChoice.showWeaponChoices(player1, computer);
+        when(userInput.getInput()).thenReturn("1");
+        when(gameCheck.getRoundResult(player1, computer)).thenReturn(Outcome.WIN);
+        Outcome result = battle.startBattle(player1, computer);
 
-        assertEquals(3, player1.getWins());
-        assertEquals(0, computer.getWins());
-        assertEquals(0, player1.getLosses());
-        assertEquals(3, computer.getLosses());
+        assertEquals(Outcome.WIN, result);
     }
 
     @Test
     void pvp_battle_outcome_success() {
-        when(userInput.getInput()).thenReturn("1", "2", "1", "2", "1", "2");
-        weaponChoice.showWeaponChoices(player1, player2);
+        when(userInput.getInput()).thenReturn("1", "3", "1", "3", "1", "3");
+        when(gameCheck.getRoundResult(player1, player2)).thenReturn(Outcome.WIN);
+        Outcome result = battle.startBattle(player1, player2);
 
-        assertEquals(0, player1.getWins());
-        assertEquals(3, player2.getWins());
-        assertEquals(3, player1.getLosses());
-        assertEquals(0, player2.getLosses());
+        assertEquals(Outcome.WIN, result);
     }
 
     @Test
@@ -78,7 +80,7 @@ public class WeaponChoiceTest {
         when(userInput.getInput()).thenReturn("99");
 
         assertThrows(IllegalStateException.class, () -> {
-            weaponChoice.showWeaponChoices(player1, player2);
+            battle.startBattle(player1, player2);
         });
     }
 }

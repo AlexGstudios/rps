@@ -2,11 +2,14 @@ package com.azeam.rps.GameBase;
 
 import com.azeam.rps.App;
 import com.azeam.rps.UserInput;
+import com.azeam.rps.GameLogic.Outcome;
 import com.azeam.rps.Players.Computer;
 import com.azeam.rps.Players.User;
+import com.azeam.rps.Utils.StringUtils;
 
 public class SinglePlayer extends Game {
     private Computer computer;
+    private StringUtils stringUtils = new StringUtils();
 
     public SinglePlayer(UserInput userInput) {
         super(userInput);
@@ -14,8 +17,10 @@ public class SinglePlayer extends Game {
         this.computer = new Computer("Computer");
     }
 
+    @Override
     public void startGame() {
-        weaponChoice.showWeaponChoices(player1, computer);
+        Outcome outcome = battle.startBattle(player1, computer);
+        stringUtils.printFinalResult(player1, computer, outcome);
         App.newGame();
     }
 }
