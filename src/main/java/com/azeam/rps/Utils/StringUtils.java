@@ -18,8 +18,8 @@ public class StringUtils {
     }
 
     public void printFinalResult(User player1, AbstractPlayer player2, Outcome outcome) {
-        System.out.println(outcome == Outcome.WIN ? player1.getName() + " HAS WON! GAME OVER!\n"
-                : player2.getName() + " HAS WON! GAME OVER!\n");
+        String winnerName = outcome == Outcome.WIN ? player1.getName() : player2.getName();
+        System.out.println(winnerName + " HAS WON! GAME OVER!\n");
     }
 
     private String getResult(User player1, AbstractPlayer player2, Outcome outcome) {

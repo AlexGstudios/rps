@@ -37,9 +37,9 @@ public class BattleTest {
     @Test
     void pvp_battle_weapon_choice_success() {
         when(userInput.getInput()).thenReturn("1", "2", "1", "2", "1", "2");
-        when(gameCheck.gameCheck(player1, player2)).thenReturn(Outcome.WIN);
+        when(gameCheck.getRoundResult(player1, player2)).thenReturn(Outcome.WIN);
 
-        battle.battle(player1, player2);
+        battle.startBattle(player1, player2);
 
         assertEquals(Weapon.ROCK, player1.getWeapon());
         assertEquals(Weapon.PAPER, player2.getWeapon());
@@ -49,8 +49,8 @@ public class BattleTest {
     void pvc_battle_weapon_choice_success() {
         when(randomUtils.getRandomWeapon()).thenReturn(Weapon.SCISSORS);
         when(userInput.getInput()).thenReturn("1");
-        when(gameCheck.gameCheck(player1, computer)).thenReturn(Outcome.WIN);
-        battle.battle(player1, computer);
+        when(gameCheck.getRoundResult(player1, computer)).thenReturn(Outcome.WIN);
+        battle.startBattle(player1, computer);
 
         assertEquals(Weapon.ROCK, player1.getWeapon());
         assertEquals(Weapon.SCISSORS, computer.getWeapon());
@@ -60,8 +60,8 @@ public class BattleTest {
     void pvc_battle_outcome_success() {
         when(randomUtils.getRandomWeapon()).thenReturn(Weapon.SCISSORS);
         when(userInput.getInput()).thenReturn("1");
-        when(gameCheck.gameCheck(player1, computer)).thenReturn(Outcome.WIN);
-        Outcome result = battle.battle(player1, computer);
+        when(gameCheck.getRoundResult(player1, computer)).thenReturn(Outcome.WIN);
+        Outcome result = battle.startBattle(player1, computer);
 
         assertEquals(Outcome.WIN, result);
     }
@@ -69,8 +69,8 @@ public class BattleTest {
     @Test
     void pvp_battle_outcome_success() {
         when(userInput.getInput()).thenReturn("1", "3", "1", "3", "1", "3");
-        when(gameCheck.gameCheck(player1, player2)).thenReturn(Outcome.WIN);
-        Outcome result = battle.battle(player1, player2);
+        when(gameCheck.getRoundResult(player1, player2)).thenReturn(Outcome.WIN);
+        Outcome result = battle.startBattle(player1, player2);
 
         assertEquals(Outcome.WIN, result);
     }
@@ -80,7 +80,7 @@ public class BattleTest {
         when(userInput.getInput()).thenReturn("99");
 
         assertThrows(IllegalStateException.class, () -> {
-            battle.battle(player1, player2);
+            battle.startBattle(player1, player2);
         });
     }
 }

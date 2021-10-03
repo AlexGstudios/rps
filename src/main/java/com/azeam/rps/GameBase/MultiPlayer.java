@@ -18,7 +18,7 @@ public class MultiPlayer extends Game {
 
     @Override
     public void startGame() {
-        Outcome outcome = battle.battle(player1, player2);
+        Outcome outcome = battle.startBattle(player1, player2);
         stringUtils.printFinalResult(player1, player2, outcome);
         App.newGame();
     }

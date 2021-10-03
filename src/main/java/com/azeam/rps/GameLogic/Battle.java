@@ -20,7 +20,7 @@ public class Battle {
         this.gameCheck = gameCheck;
     }
 
-    public Outcome battle(User player1, AbstractPlayer player2) {
+    public Outcome startBattle(User player1, AbstractPlayer player2) {
         while (player1.getWins() < 3 && player2.getWins() < 3) {
             setWeaponChoice(player1);
             if (player2 instanceof User) {
@@ -28,7 +28,7 @@ public class Battle {
             } else if (player2 instanceof Computer) {
                 player2.setWeapon(randomUtils.getRandomWeapon());
             }
-            Outcome outcome = gameCheck.gameCheck(player1, player2);
+            Outcome outcome = gameCheck.getRoundResult(player1, player2);
             setScore(outcome, player1, player2);
             stringUtils.printResult(player1, player2, outcome);
         }

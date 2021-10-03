@@ -14,7 +14,7 @@ public class GameCheck {
         this.weaponData = weaponData;
     }
 
-    public Outcome gameCheck(User player1, AbstractPlayer player2) {
+    public Outcome getRoundResult(User player1, AbstractPlayer player2) {
         player1Weapon = weaponData.getWeaponData(player1.getWeapon());
         player2Weapon = weaponData.getWeaponData(player2.getWeapon());
 

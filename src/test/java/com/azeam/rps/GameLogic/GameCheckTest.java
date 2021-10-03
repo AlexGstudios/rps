@@ -40,9 +40,9 @@ public class GameCheckTest {
         when(player2.getWeapon()).thenReturn(Weapon.SCISSORS);
         when(computer.getWeapon()).thenReturn(Weapon.SCISSORS);
 
-        assertThat(gameCheck.gameCheck(player1, player2), equalTo(Outcome.WIN));
-        assertThat(gameCheck.gameCheck(player2, player1), equalTo(Outcome.LOSS));
-        assertThat(gameCheck.gameCheck(player1, computer), equalTo(Outcome.WIN));
+        assertThat(gameCheck.getRoundResult(player1, player2), equalTo(Outcome.WIN));
+        assertThat(gameCheck.getRoundResult(player2, player1), equalTo(Outcome.LOSS));
+        assertThat(gameCheck.getRoundResult(player1, computer), equalTo(Outcome.WIN));
     }
 
     @Test
@@ -51,9 +51,9 @@ public class GameCheckTest {
         when(player2.getWeapon()).thenReturn(Weapon.PAPER);
         when(computer.getWeapon()).thenReturn(Weapon.PAPER);
 
-        assertThat(gameCheck.gameCheck(player1, player2), equalTo(Outcome.WIN));
-        assertThat(gameCheck.gameCheck(player2, player1), equalTo(Outcome.LOSS));
-        assertThat(gameCheck.gameCheck(player1, computer), equalTo(Outcome.WIN));
+        assertThat(gameCheck.getRoundResult(player1, player2), equalTo(Outcome.WIN));
+        assertThat(gameCheck.getRoundResult(player2, player1), equalTo(Outcome.LOSS));
+        assertThat(gameCheck.getRoundResult(player1, computer), equalTo(Outcome.WIN));
     }
 
     @Test
@@ -62,9 +62,9 @@ public class GameCheckTest {
         when(player2.getWeapon()).thenReturn(Weapon.ROCK);
         when(computer.getWeapon()).thenReturn(Weapon.ROCK);
 
-        assertThat(gameCheck.gameCheck(player1, player2), equalTo(Outcome.WIN));
-        assertThat(gameCheck.gameCheck(player2, player1), equalTo(Outcome.LOSS));
-        assertThat(gameCheck.gameCheck(player1, computer), equalTo(Outcome.WIN));
+        assertThat(gameCheck.getRoundResult(player1, player2), equalTo(Outcome.WIN));
+        assertThat(gameCheck.getRoundResult(player2, player1), equalTo(Outcome.LOSS));
+        assertThat(gameCheck.getRoundResult(player1, computer), equalTo(Outcome.WIN));
     }
 
     @Test
@@ -73,24 +73,24 @@ public class GameCheckTest {
         when(player2.getWeapon()).thenReturn(Weapon.PAPER);
         when(computer.getWeapon()).thenReturn(Weapon.PAPER);
 
-        assertThat(gameCheck.gameCheck(player1, player2), equalTo(Outcome.DRAW));
-        assertThat(gameCheck.gameCheck(player2, player1), equalTo(Outcome.DRAW));
-        assertThat(gameCheck.gameCheck(player1, computer), equalTo(Outcome.DRAW));
+        assertThat(gameCheck.getRoundResult(player1, player2), equalTo(Outcome.DRAW));
+        assertThat(gameCheck.getRoundResult(player2, player1), equalTo(Outcome.DRAW));
+        assertThat(gameCheck.getRoundResult(player1, computer), equalTo(Outcome.DRAW));
 
         when(player1.getWeapon()).thenReturn(Weapon.ROCK);
         when(player2.getWeapon()).thenReturn(Weapon.ROCK);
         when(computer.getWeapon()).thenReturn(Weapon.ROCK);
 
-        assertThat(gameCheck.gameCheck(player1, player2), equalTo(Outcome.DRAW));
-        assertThat(gameCheck.gameCheck(player2, player1), equalTo(Outcome.DRAW));
-        assertThat(gameCheck.gameCheck(player1, computer), equalTo(Outcome.DRAW));
+        assertThat(gameCheck.getRoundResult(player1, player2), equalTo(Outcome.DRAW));
+        assertThat(gameCheck.getRoundResult(player2, player1), equalTo(Outcome.DRAW));
+        assertThat(gameCheck.getRoundResult(player1, computer), equalTo(Outcome.DRAW));
 
         when(player1.getWeapon()).thenReturn(Weapon.SCISSORS);
         when(player2.getWeapon()).thenReturn(Weapon.SCISSORS);
         when(computer.getWeapon()).thenReturn(Weapon.SCISSORS);
 
-        assertThat(gameCheck.gameCheck(player1, player2), equalTo(Outcome.DRAW));
-        assertThat(gameCheck.gameCheck(player2, player1), equalTo(Outcome.DRAW));
-        assertThat(gameCheck.gameCheck(player1, computer), equalTo(Outcome.DRAW));
+        assertThat(gameCheck.getRoundResult(player1, player2), equalTo(Outcome.DRAW));
+        assertThat(gameCheck.getRoundResult(player2, player1), equalTo(Outcome.DRAW));
+        assertThat(gameCheck.getRoundResult(player1, computer), equalTo(Outcome.DRAW));
     }
 }

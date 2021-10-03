@@ -18,7 +18,7 @@ public class SinglePlayer extends Game {
     }
 
     public void startGame() {
-        Outcome outcome = battle.battle(player1, computer);
+        Outcome outcome = battle.startBattle(player1, computer);
         stringUtils.printFinalResult(player1, computer, outcome);
         App.newGame();
     }
